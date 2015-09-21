@@ -18,9 +18,9 @@ Fooditem.prototype.stringify = function(){
 }
 
 
- var burrito = new Fooditem( 'Taco', 500, false, false, true)
- var pizza   = new Fooditem('Chicken Burrito', 600, true, true, true)
- var burger  = new Fooditem( 'Nachos', 1000, false, true, false)
+ var burrito = new Fooditem( 'burrito', 500, false, false, true)
+ var chickenBurrito   = new Fooditem('Chicken Burrito', 600, true, true, true)
+ var nachos  = new Fooditem( 'Nachos', 1000, false, true, false)
 
 
 var Drink = function( name, description, price, ingredients){
@@ -91,13 +91,13 @@ myOrder.stringify()
 
 //=-=-=-=-=-=-=-=-=-=-menu=-=-=-=-=-=-=-=\\
 
-ar menu = function(plate){
+var Menu = function(plate){
 	this.plate = plate;
 
 
 }
 
-menu.prototype.stringify = function(){
+Menu.prototype.stringify = function(){
 
 
 }
@@ -108,5 +108,3 @@ myMenu.stringify()
 
 
 //=-=-=-=-=-=-=-=-=-=-Restaurant-==-=-=-=-//
-
-
