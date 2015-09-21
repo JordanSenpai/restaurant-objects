@@ -1,94 +1,88 @@
-var Fooditem = function(name, calories, vegan, glutenFree, citrusFree) {
+
+var Fooditem = function( name, calories, vegan, glutenFree, citrusFree ){
+
 	this.name = name;
 	this.calories = calories;
 	this.vegan = vegan;
 	this.glutenFree = glutenFree;
 	this.citrusFree = citrusFree;
+	// this.stringify=stringify
+
+}
+// console.log(obj.name + ' ' + obj.calories + ' ' +  'is this vegan? ' +  obj.vegan + ' ' + obj.glutenFree + ' ' + obj.citrusFree)
+
+Fooditem.prototype.stringify = function(){
+
+	console.log((this.name + ' ' + this.calories + ' ' +  'is this vegan? ' +  this.vegan + ' ' + this.glutenFree + ' ' + this.citrusFree))
+
 }
 
 
-Fooditem.prototype.stringify = function() {
-	var vegan = this.vegan ? "is" : "is not";
-	var glutenFree = this.glutenFree ? "is" : "is not";
-	var citrusFree = this.citrusFree ? "is" : "is not";
+ var burrito = new Fooditem( 'Taco', 500, false, false, true)
+ var pizza   = new Fooditem('Chicken Burrito', 600, true, true, true)
+ var burger  = new Fooditem( 'Nachos', 1000, false, true, false)
 
 
-	console.log("The dishes name is " + this.name + ". It contains " + this.calories + " calories." + "It " + vegan + " vegan. It " + glutenFree + " gluten free. It " + citrusFree + " citrus free. Enjoy!" )
-}
+var Drink = function( name, description, price, ingredients){
 
-
-var taco = new Fooditem('Taco', 1000, false, false, true)
-var chickenBurrito = new Fooditem('Chicken Burrito', 2000, true, true, true)
-var nachos = new Fooditem('Nachos', 5000, false, true, false)
-
-// console.log(taco.stringify(), chickenBurrito.stringify(), nachos.stringify())
-
-var Drink = function(name, description, price, ingredients) {
 	this.name = name;
-	this.description = description;
+	this.description= description;
 	this.price = price;
 	this.ingredients = ingredients;
 }
 
+Drink.prototype.stringify = function(){
 
-var Plate = function(name, description, price, ingredients) {
+console.log((this.name + ' ' + this.description + ' ' + this.price + ' ' + this.ingredients))
+
+
+
+
+}
+
+
+var Plate = function( name, description, price, ingredients){
+
 	this.name = name;
-	this.description = description;
+	this.description= description;
 	this.price = price;
 	this.ingredients = ingredients;
+
 }
 
 
 
-var Order = function(plates) {
-	this.plates = plates;
-}
+Plate.prototype.stringify = function(){
 
-var Menu = function(plates) {
-	this.plates = plates;
-}
+console.log((this.name + ' ' + this.description + ' ' + this.price + ' ' + this.ingredients))
 
-var Restaurant = function(name, description, Menu) {
-	this.name = name;
-	this.description = description;
-	this.Menu = Menu;
-}
-
-var Customer = function(dietaryPreference) {
-	this.dietaryPreference = dietaryPreference;
 }
 
 
-var fizzySugar = new Drink('fizzy sugar', 'It is fizzy.', 2, ['high fructose corn syrup','water', 'poop', 'doodoo'])
-// console.log(fizzySugar.stringify())
+
+var margaritaDrink = new Drink ('bad drink', 'alot will get you drunk', 2, ['water', 'lime'])
+
+var guacamolePlate = new Plate ('guacamole', ' best guacamole ever', 15, ['shell', 'meat', 'guacamole', 'sauce'])
+
+var burritoPlate = new Plate ('burrito', 'pants overload goodness', 18,['chicken', 'beans', 'hot sauce', 'mystery meat'])
 
 
-Drink.prototype.stringify = function() {
-	console.log("The name of your drink is " + this.name + "." + this.description + " It's ingredients are: " + this.ingredients.join(", ") + ".")
+
+
+//=-=-=-=--=-=-=-=-=-=-=ORDER-=-=-=-=-=\\
+
+
+var Order = function(plate){
+	this.plate = plate;
+
+
 }
 
-Plate.prototype.stringify = function() {
-	console.log("The name of your plate is " + this.name + "." + this.description + " It's ingredients are: " + this.ingredients)
+Order.prototype.stringify = function(){
+
+
 }
 
-Order.prototype.stringify = function() {
-	console.log("Your order consists of: " + this.plates.join(", ") + ".")	
-}
+var myOrder = new Order([guacamolePlate, burritoPlate])
 
-Menu.prototype.stringify = function() {
-	console.log("The menu is: " + this.plates.join(", ") + ".")
-}
-
-Restaurant.prototype.stringify = function() {
-	console.log("The name of the resturant is: " + this.name + "." + this.description + ". Our menu is: " + this.Menu)
-}
-
-Customer.prototype.stringify = function() {
-	console.log("your dumb restrictions are: " + this.dietaryPreference)
-}
-
-
-var mexicanPlate = new Plate("mexican plate", "this is a mexican plate", 100, [taco.stringify(), chickenBurrito.stringify(), nachos.stringify()])
-
-console.log(mexicanPlate.stringify())
-
+myOrder.stringify()
