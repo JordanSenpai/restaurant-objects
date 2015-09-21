@@ -86,3 +86,27 @@ Order.prototype.stringify = function(){
 var myOrder = new Order([guacamolePlate, burritoPlate])
 
 myOrder.stringify()
+
+
+
+//=-=-=-=-=-=-=-=-=-=-menu=-=-=-=-=-=-=-=\\
+
+ar menu = function(plate){
+	this.plate = plate;
+
+
+}
+
+menu.prototype.stringify = function(){
+
+
+}
+
+var myMenu = new Menu([guacamolePlate, burritoPlate, margaritaDrink])
+
+myMenu.stringify()
+
+
+//=-=-=-=-=-=-=-=-=-=-Restaurant-==-=-=-=-//
+
+
